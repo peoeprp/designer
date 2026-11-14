@@ -67,7 +67,9 @@
   async function send(r){
     let res;
     if(cfg.provider==='supabase') res=await fetch(`${base()}/rest/v1/${cfg.table}`,{method:'POST',headers:{...sbHeaders(),'Prefer':'return=minimal'},body:JSON.stringify(r)});
-    else res=await fetch(base(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(r)});
+    // text/plain — «простой» запрос: браузер не делает предварительную проверку CORS,
+    // функция всё равно читает тело как JSON
+    else res=await fetch(base(),{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(r)});
     if(!res.ok)throw new Error(res.status);
   }
 
