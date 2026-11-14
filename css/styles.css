@@ -4,42 +4,37 @@
    ========================================================== */
 
 /* ---------- Шрифты ----------
-   Kontrabanda — заголовок первого экрана. Положите файлы в /fonts:
-   fonts/Kontrabanda.woff2 (или .woff / .ttf / .otf)
-   Century Gothic — основной. Сначала берётся установленный в системе,
-   затем файлы из /fonts, затем похожий Didact Gothic с Google Fonts. */
+   Kontrabanda — заголовок первого экрана: fonts/Kontrabanda.ttf
+   Mulish — основной шрифт сайта: fonts/mulish-*.woff2
+   Все шрифты лежат на самом сайте, внешние сервисы не нужны. */
 @font-face{
   font-family:"Kontrabanda";
-  src:local("Kontrabanda"),
-      url("../fonts/Kontrabanda.woff2") format("woff2"),
-      url("../fonts/Kontrabanda.woff") format("woff"),
-      url("../fonts/Kontrabanda.ttf") format("truetype"),
-      url("../fonts/Kontrabanda.otf") format("opentype");
+  src:local("Kontrabanda"),url("../fonts/Kontrabanda.ttf") format("truetype");
   font-weight:400; font-style:normal; font-display:swap;
 }
+/* Mulish — бесплатный шрифт (SIL Open Font License), вариативный:
+   одна пара файлов даёт все толщины от 200 до 900. */
 @font-face{
-  font-family:"Century Gothic Web";
-  src:local("Century Gothic"),local("CenturyGothic"),
-      url("../fonts/CenturyGothic.woff2") format("woff2"),
-      url("../fonts/CenturyGothic.ttf") format("truetype");
-  font-weight:400; font-style:normal; font-display:swap;
+  font-family:"Mulish";
+  src:url("../fonts/mulish-cyrillic-wght-normal.woff2") format("woff2");
+  font-weight:200 900; font-style:normal; font-display:swap;
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
 }
 @font-face{
-  font-family:"Century Gothic Web";
-  src:local("Century Gothic Bold"),local("CenturyGothic-Bold"),
-      url("../fonts/CenturyGothic-Bold.woff2") format("woff2"),
-      url("../fonts/CenturyGothic-Bold.ttf") format("truetype");
-  font-weight:700; font-style:normal; font-display:swap;
+  font-family:"Mulish";
+  src:url("../fonts/mulish-latin-wght-normal.woff2") format("woff2");
+  font-weight:200 900; font-style:normal; font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
 /* ---------- Токены: светлая тема ---------- */
 :root{
   --bg:#F7F3E7; --surface:#FFFCF4; --ink:#141824; --muted:#6A6656; --line:#E3DCC8;
   --accent:#134AA6; --accent-ink:#FFFFFF; --tulip:#E2537A; --soft:#EFE9D7;
-  --f-hero:"Kontrabanda","Century Gothic Web","Didact Gothic",sans-serif;
-  --f-display:"Century Gothic Web","Century Gothic","Didact Gothic","URW Gothic",Futura,sans-serif;
-  --f-body:"Century Gothic Web","Century Gothic","Didact Gothic","URW Gothic",Futura,sans-serif;
-  --f-mono:"Century Gothic Web","Century Gothic","Didact Gothic",sans-serif;
+  --f-hero:"Kontrabanda","Mulish",system-ui,sans-serif;
+  --f-display:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Mulish",system-ui,sans-serif;
   --r:22px; --gut:max(16px,env(safe-area-inset-left,0px)); --gutr:max(16px,env(safe-area-inset-right,0px));
 }
 /* ---------- Тёмная тема: ночной синий ---------- */
