@@ -46,6 +46,7 @@
   --accent:#4F8AF0; --accent-ink:#0A1120; --tulip:#FF7EA3; --soft:#17233D; color-scheme:dark}
 
 *{box-sizing:border-box}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* базовый сброс: без него окно проекта (атрибут hidden) остаётся видимым поверх сайта */
 [hidden]{display:none!important}
 body{margin:0}
