@@ -20,6 +20,8 @@ const covers={
   som:`<div class="cv cv-som"><div class="t">SOMNIUM</div><div class="moon"></div></div>`,
   site:`<div class="cv cv-site"><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="lines"><b></b><b style="width:90%"></b><b style="width:60%"></b><b style="width:80%"></b></div></div></div>`,
   resto:`<div class="cv cv-resto"><div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="plate"></div><div class="t">Ресторан</div><div class="menu"><b></b><b></b><b></b></div></div></div>`,
+  app1:`<div class="cv cv-app a1"><div class="phone"><i class="notch"></i><b class="hd"></b><span class="row"></span><span class="row s"></span><span class="tiles"><i></i><i></i><i></i><i></i></span><span class="nav"><i></i><i></i><i></i></span></div><div class="phone back"><i class="notch"></i><b class="hd"></b><span class="row"></span><span class="row s"></span></div><span class="tag-ux">UX/UI · ВКР</span></div>`,
+  app2:`<div class="cv cv-app a2"><div class="phone"><i class="notch"></i><span class="map"><i></i><i></i><i></i></span><span class="row"></span><span class="row s"></span><span class="nav"><i></i><i></i><i></i></span></div><span class="t">ЭЛИСТА</span><span class="tag-ux">UX/UI</span></div>`,
   med:`<div class="cv cv-med"><div class="win"><div class="bar"><i></i><i></i><i></i></div><svg class="pulse" viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M0 34h60l10-20 14 40 12-30 8 10h96" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><div class="t">Реабилитация</div><div class="btns"><b></b><b></b></div></div><span class="proto">ПРОТОТИП</span></div>`
 };
 
@@ -45,10 +47,37 @@ const projects=[
    tags:['Прототип','UX','Медицина'],
    link:'https://peoeprp.github.io/reabilitation/',linkLabel:'Смотреть прототип'},
 
+  /* ---------- МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ: UX/UI, предпросмотр + ссылка на прототип в Figma ---------- */
+  {id:'diploma',cat:'app',cover:'app1',images:[],
+   shots:['img/projects/apps/navigator-1.webp','img/projects/apps/navigator-2.webp','img/projects/apps/navigator-3.webp','img/projects/apps/navigator-4.webp'],
+   title:'«Навигатор Знаний» — дипломный проект',kind:'UX/UI-дизайн · ВКР 2026',
+   done:'Интерактивный прототип образовательного приложения для детей с тремя ролями: ребёнок, родитель, педагог.',
+   info:{
+     'Задача':'Концепция и интерактивный прототип мобильного приложения для центра развития детей младшего школьного возраста',
+     'Исследование':'Анализ аналогов (Фоксфорд, Учи.ру, Lingokids, ЯКласс), персоны, опрос родителей: 87% детей интересен игровой формат обучения',
+     'Решение':'Один сервис — три роли. Ребёнок проходит задания, получает награды и видит свой прогресс; родитель — аналитику навыков и рекомендации; педагог — аналитику класса и каталог заданий',
+     'Что сделано':'Нейминг и логотип, пользовательские сценарии, структура интерфейса, UI всех экранов, геймификация, интерактивный прототип',
+     'Инструменты':'Figma, Illustrator, Photoshop'},
+   tags:['UX/UI','EdTech','Геймификация','Figma'],
+   link:'https://clck.ru/3TfVu2',linkLabel:'Смотреть прототип в Figma'},
+
+  {id:'elista-app',cat:'app',cover:'app2',images:[],
+   shots:['img/projects/apps/elista-1.webp','img/projects/apps/elista-2.webp','img/projects/apps/elista-3.webp','img/projects/apps/elista-4.webp'],
+   title:'«Моя Элиста» — приложение для города',kind:'UX/UI-дизайн · командный проект',
+   done:'UX/UI туристического приложения: персональный маршрут по Элисте с жильём, едой и событиями.',
+   info:{
+     'Проблема':'Туристам и жителям сложно планировать досуг: городские сервисы разрознены, а информация часто устаревшая',
+     'Решение':'Приложение собирает персональный маршрут по интересам, бюджету и времени пребывания: места, транспорт, жильё и события рядом',
+     'Исследование':'Персоны туристов и жителей, диаграмма болей, анализ аналогов, гипотеза и концепция',
+     'Что сделано':'Функции и пользовательские сценарии, wireframes 22 экранов, референсы, style guide (типографика, палитра, кнопки, сетка), UI-дизайн и прототип',
+     'Моя роль':'UX/UI-дизайнер в команде из 6 человек: логика и пользовательские пути, переходы между экранами, дизайн всех экранов и графических элементов'},
+   tags:['UX/UI','Туризм','Мобильное приложение','Figma'],
+   link:'https://www.figma.com/proto/CHuxl5CO49N3OylMQm2jk5/%D0%A0%D0%98%D0%A2%D0%9F-%D0%98-%D0%9F%D0%94-7-%D0%A1%D0%95%D0%9C%D0%95%D0%A1%D0%A2%D0%A0?page-id=1312%3A818&node-id=1566-153&viewport=179%2C236%2C0.05&t=uKDJeh2rzkRh6PXr-1&scaling=scale-down&content-scaling=fixed',linkLabel:'Смотреть прототип в Figma'},
+
   /* ---------- ВИЗУАЛ БРЕНДА: у каждого своя страница ---------- */
   {id:'tulips',cat:'brand',cover:'tul',
    folder:'tulips',
-   images:['555.png','333.png','111.png','222.png','444.png'],
+   images:['555.webp','333.webp','111.webp','222.webp','444.webp'],
    title:'Фестиваль тюльпанов в Элисте',kind:'Айдентика · брендбук',
    done:'Логотип, паттерн, сувенирный комплект, пакет и брендбук.',
    lead:'Айдентика ежегодного фестиваля, который объединяет цветение степных тюльпанов и культурное наследие Калмыкии.',
@@ -64,7 +93,7 @@ const projects=[
 
   {id:'rowing',cat:'brand',cover:'row',
    folder:'rb',
-   images:['1024 на 500.png','1111.png','mock.png','1.png','2.png','3.png'],
+   images:['1024 на 500.webp','1111.webp','mock.webp','1.webp','2.webp','3.webp','merch-1.webp','merch-2.webp','merch-3.webp','merch-4.webp','merch-5.webp'],
    title:'Rowing Base',kind:'Айдентика · фирменный стиль',
    done:'Фирменный стиль, графика «волн», соцсети и превью приложения.',
    lead:'Фирменный стиль фитнес-клуба академической гребли в Санкт-Петербурге.',
@@ -80,7 +109,7 @@ const projects=[
 
   {id:'bazar',cat:'brand',cover:'bazar',
    folder:'bazar',
-   images:['333.png','222.png','image14.png','image15.png','111.png','444.png','555.png'],
+   images:['333.webp','222.webp','image14.webp','image15.webp','111.webp','444.webp','555.webp'],
    title:'BAZAR · стритфуд в Шри-Ланке',kind:'Рекламная графика · плакаты',
    done:'Серия из 4 витринных плакатов в стилистике стрит-арта.',
    lead:'Серия больших плакатов на окна шавермы в серферской деревне Велигама.',
@@ -94,7 +123,8 @@ const projects=[
    ],
    tags:['Плакаты','Леттеринг','Стрит-арт']},
 
-  {id:'foodstall',cat:'brand',cover:'stall',images:[],
+  {id:'foodstall',cat:'brand',cover:'stall',folder:'foodstall',
+   images:['1.webp','2.webp'],
    title:'Food Stall · шаверма',kind:'Брендинг · меню',
    done:'Брендинг и меню для точки шавермы.',
    lead:'Брендинг и меню для шавермы формата food stall.',
@@ -107,7 +137,7 @@ const projects=[
 
   {id:'restobar',cat:'brand',cover:'bar',
    folder:'leskoff',
-   images:['Frame 2.png','A4 - 1.png','A4 - 2.png','Frame 54.png','Frame 65.png','Frame 66.png','image 11.png','image 12.png','image 13.png'],
+   images:['Frame 2.webp','A4 - 1.webp','A4 - 2.webp','Frame 54.webp','Frame 65.webp','Frame 66.webp','image 11.webp','image 12.webp','image 13.webp'],
    title:'Leskoff · рестобар',kind:'Рекламная продукция · меню',
    done:'Уличное и внутреннее меню, иллюстрации и фотостиль.',
    lead:'Рекламная продукция для камерного рестобара в историческом центре Петербурга.',

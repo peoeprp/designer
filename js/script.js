@@ -83,6 +83,7 @@ grid.innerHTML=projects.map((p,i)=>{
 $('#c-all').textContent=projects.length;
 $('#c-web').textContent=projects.filter(p=>p.cat==='web').length;
 $('#c-brand').textContent=projects.filter(p=>p.cat==='brand').length;
+$('#c-app').textContent=projects.filter(p=>p.cat==='app').length;
 
 function movePill(btn){const p=$('#pill');p.style.left=btn.offsetLeft+'px';p.style.width=btn.offsetWidth+'px';}
 $$('.filters button').forEach(b=>b.onclick=()=>{
@@ -107,9 +108,11 @@ const modal=$('#modal');
 function openSite(i){
   const p=projects[i];
   const btn=(p.link?`<a class="btn" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel||'Открыть сайт'} ↗</a>`:`<span class="btn ghost is-off">Ссылка скоро появится</span>`)
+    +(p.link2?`<a class="btn ghost" href="${p.link2}" target="_blank" rel="noopener">${p.link2Label||'Ещё'} ↗</a>`:'')
     +(p.here?`<a class="btn ghost" href="#top" data-close>Версия в коде — вы на ней</a>`:'');
-  $('#modalBox').innerHTML=`<div class="cover">${covers[p.cover]}</div>
-  <div class="modal-in"><span class="mono">Сайты · ${p.kind}</span><h3>${p.title}</h3>
+  const media=p.shots?`<div class="app-shots">${p.shots.map((src,j)=>`<img src="${src}" alt="${p.title}, экраны ${j+1}" loading="lazy" decoding="async">`).join('')}</div>`:`<div class="cover">${covers[p.cover]}</div>`;
+  $('#modalBox').innerHTML=`${media}
+  <div class="modal-in"><span class="mono">${p.cat==='app'?'Приложения':'Сайты'} · ${p.kind}</span><h3>${p.title}</h3>
   ${p.status==='prototype'?'<p class="proto-note">Это прототип: сайт не действующий, записаться через него нельзя. По ссылке можно посмотреть, как он устроен.</p>':''}
   ${p.here?'<p class="here-note">Сайт, который вы сейчас смотрите, — тоже моя работа: та же идея портфолио, но сделанная кодом без конструктора.</p>':''}
   <dl>${Object.entries(p.info).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>

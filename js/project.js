@@ -57,17 +57,36 @@ $('#pp').innerHTML=`
 /* картинки из папки img/projects/<id>/ */
 const dir=`../img/projects/${p.folder||p.id}/`;
 const probe=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(src);i.onerror=()=>r(null);i.src=src;});
-async function findImages(){
-  if(!p.images.length)return [];
-  const ok=await Promise.all(p.images.map(n=>probe(dir+encodeURIComponent(n))));
-  return ok.filter(Boolean);
+const EXT=['webp','jpg','jpeg','png','JPG','JPEG','PNG'];
+/* картинки из списка показываем сразу, не дожидаясь загрузки всех */
+const listed=p.images.map(n=>dir+encodeURIComponent(n));
+async function findMore(){
+  /* дополнительные фото по номерам: p.more = префикс имени, например 'merch-' → merch-1.webp, merch-2.jpg ... */
+  const out=[]; if(p.more===undefined)return out;
+  for(let n=1;n<=30;n++){
+    let hit=null; for(const e of EXT){hit=await probe(dir+encodeURIComponent(p.more+n)+'.'+e); if(hit)break;}
+    if(!hit)break; out.push(hit);
+  }
+  return out;
 }
-findImages().then(list=>{
+const shotHTML=(s,j)=>`<button class="shot" aria-label="Открыть изображение ${j+1}"><img src="${s}" alt="${p.title}, изображение ${j+1}" loading="lazy" decoding="async" onerror="this.parentElement.remove()"></button>`;
+function addShots(list){
   if(!list.length)return;
-  const cov=$('#ppCover'); const im=new Image(); im.src=list[0]; im.alt=p.title; cov.appendChild(im);
-  const rest=list.length>1?list.slice(1):list;
-  $('#shots').innerHTML=rest.map((s,j)=>`<button class="shot" aria-label="Открыть изображение ${j+1}"><img src="${s}" alt="${p.title}, изображение ${j+1}" loading="lazy"></button>`).join('');
+  const shots=$('#shots'), start=shots.children.length;
+  shots.insertAdjacentHTML('beforeend',list.map((s,j)=>shotHTML(s,start+j)).join(''));
   $('#galWrap').hidden=false;
+}
+/* обложка — первая картинка из списка; если она не загрузилась, пробуем следующую из списка */
+function setCover(list,i=0){
+  const cov=$('#ppCover'); if(i>=list.length||cov.querySelector('img'))return;
+  const im=new Image(); im.alt=p.title; im.decoding='async'; im.fetchPriority='high';
+  im.onload=()=>cov.appendChild(im); im.onerror=()=>setCover(list,i+1); im.src=list[i];
+}
+if(listed.length){ setCover(listed); addShots(listed.length>1?listed.slice(1):listed); }
+findMore().then(more=>{
+  if(!more.length)return;
+  if(!listed.length){ setCover(more); addShots(more.length>1?more.slice(1):more); }
+  else addShots(more);
 });
 
 /* лайтбокс */
