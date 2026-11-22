@@ -124,7 +124,7 @@ const projects=[
    tags:['Плакаты','Леттеринг','Стрит-арт']},
 
   {id:'foodstall',cat:'brand',cover:'stall',folder:'foodstall',
-   images:['1.webp','2.webp'],
+   images:['logo.webp','1.webp','2.webp'],
    title:'Food Stall · шаверма',kind:'Брендинг · меню',
    done:'Брендинг и меню для точки шавермы.',
    lead:'Брендинг и меню для шавермы формата food stall.',
