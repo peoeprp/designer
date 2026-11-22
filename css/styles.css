@@ -510,18 +510,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .hero-grid{margin-top:clamp(16px,3vh,32px)}
 .hero-photo{aspect-ratio:auto;height:100%;min-height:340px;max-height:none;justify-self:stretch}
 .photo-blob{display:none}
-.wave-ring{position:absolute;left:50%;top:50%;width:min(100%,82vh);aspect-ratio:1;height:auto;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.wave-ring{position:absolute;left:50%;top:40%;width:min(84%,58vh);aspect-ratio:1;height:auto;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
 .photo-ph{inset:6% 0 0}
 .photo-ph svg{width:auto;height:96%;max-width:100%}
 .photo-img{height:100%;max-height:100%;width:auto;max-width:100%;z-index:1}
 .sticker{z-index:2}
-.s1{top:14%;left:2%}.s2{top:46%;right:0}.s3{bottom:18%;left:0}
+.s1{top:10%;left:4%}.s2{top:34%;right:2%}.s3{top:60%;bottom:auto;left:2%}
 @media (max-width:760px){
   .hero{min-height:0}
   .hero-top{grid-template-columns:1fr}
   .hero h1{font-size:clamp(50px,15vw,96px)}
   .hero-photo{height:auto;aspect-ratio:1/1.05;width:min(92%,380px);justify-self:center;min-height:0}
-  .wave-ring{width:100%}
+  .wave-ring{width:84%;top:40%}
 }
 @media (max-height:640px) and (min-width:761px){.hero{min-height:0}}
 @media (max-width:440px){.logo{font-size:15px}.nav-r .btn.sm{padding:9px 12px;font-size:13px}}
@@ -619,5 +619,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .doc .upd{color:var(--muted);font-size:14px}
 .doc .fill{background:color-mix(in srgb,var(--tulip) 18%,transparent);padding:0 4px;border-radius:4px}
 .doc a{color:var(--accent)}
+
+
+/* ===== экраны приложения в предпросмотре ===== */
+.app-shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;background:var(--soft);padding:10px}
+.app-shots img{flex:0 0 92%;width:92%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;scroll-snap-align:center;background:var(--surface)}
+.modal-box:has(.app-shots){max-width:860px}
+
+/* ===== обложки мобильных приложений ===== */
+.cv-app{background:linear-gradient(150deg,#DCE6F7,#B9CBEA)}
+.cv-app.a2{background:linear-gradient(150deg,#F6E3C8,#EBC59A)}
+.cv-app .phone{position:absolute;left:50%;top:12%;width:30%;aspect-ratio:9/19;transform:translateX(-30%);background:#fff;border-radius:18px;border:4px solid #141824;box-shadow:0 24px 40px -18px #0006;overflow:hidden;padding:16px 8px 8px;display:flex;flex-direction:column;gap:6px}
+.cv-app .phone.back{transform:translateX(-110%) rotate(-8deg);top:18%;opacity:.85;z-index:0}
+.cv-app .phone:not(.back){z-index:1}
+.cv-app .notch{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:34%;height:6px;border-radius:6px;background:#141824}
+.cv-app .hd{display:block;height:28%;border-radius:10px;background:#134AA6}
+.cv-app .row{display:block;height:6px;border-radius:4px;background:#D9DEE8}
+.cv-app .row.s{width:60%}
+.cv-app .tiles{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex:1}
+.cv-app .tiles i{border-radius:6px;background:#EEF2F9}
+.cv-app .tiles i:first-child{background:#E2537A33}
+.cv-app .nav{display:flex;justify-content:space-around;margin-top:auto;padding-top:4px;border-top:1px solid #EEF0F4}
+.cv-app .nav i{width:8px;height:8px;border-radius:50%;background:#C5CCDA}
+.cv-app .nav i:first-child{background:#134AA6}
+.cv-app .map{position:relative;display:block;height:46%;border-radius:10px;background:repeating-linear-gradient(35deg,#EAF1E3 0 10px,#DCE8D2 10px 12px)}
+.cv-app .map i{position:absolute;width:10px;height:10px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#C2185B}
+.cv-app .map i:nth-child(1){left:22%;top:30%}.cv-app .map i:nth-child(2){left:58%;top:52%;background:#134AA6}.cv-app .map i:nth-child(3){left:40%;top:70%;background:#FF9F1C}
+.cv-app.a2 .phone{left:62%}
+.cv-app .t{position:absolute;left:22px;bottom:18px;font:700 clamp(20px,3vw,32px) var(--f-display);color:#7A3E10;letter-spacing:.08em}
+.cv-app .tag-ux{position:absolute;right:12px;top:12px;font:700 11px var(--f-mono);letter-spacing:.1em;padding:6px 10px;border-radius:99px;background:#141824;color:#fff;z-index:2}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.pl{animation:plFailsafe 0s 3s forwards!important}}
